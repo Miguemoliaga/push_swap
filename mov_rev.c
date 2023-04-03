@@ -1,40 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mov_rot.c                                          :+:      :+:    :+:   */
+/*   mov_rev.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmartine <mmartine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/03 20:14:24 by mmartine          #+#    #+#             */
-/*   Updated: 2023/04/03 21:00:16 by mmartine         ###   ########.fr       */
+/*   Created: 2023/04/03 21:00:29 by mmartine          #+#    #+#             */
+/*   Updated: 2023/04/03 21:09:03 by mmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate(t_list **stack)
+void	reverse(t_list **stack)
 {
-	t_list	*last;
+	t_list	*head;
 
-	last = *stack;
-	ft_lstadd_back(stack, last);
+	head = ft_lstlast(stack);
+	head -> next = *stack;
+	*stack = head;
 }
 
-void	rot_a(t_list **stack_a)
-{
-	rotate(stack_a);
-	write(1, "ra\n", 3);
-}
-
-void	rot_b(t_list **stack_b)
-{
-	rotate(stack_b);
-	write(1, "rb\n", 3);
-}
-
-void	rot_ab(t_list **stack_a, t_list **stack_b)
-{
-	rotate(stack_a);
-	rotate(stack_b);
-	write(1, "rr\n", 3);
-}
+//tenog que mirar lo que hay que poner en NULL para los -> next y terminar eso.
