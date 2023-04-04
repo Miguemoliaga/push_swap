@@ -6,7 +6,7 @@
 /*   By: mmartine <mmartine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 21:00:29 by mmartine          #+#    #+#             */
-/*   Updated: 2023/04/04 16:34:05 by mmartine         ###   ########.fr       */
+/*   Updated: 2023/04/04 18:09:46 by mmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,3 @@ void	reverse_ab(t_list **stack_a, t_list **stack_b)
 	reverse(stack_b);
 	write(1, "rrr\n", 4);
 }
-
-
