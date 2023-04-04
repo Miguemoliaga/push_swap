@@ -6,7 +6,7 @@
 /*   By: mmartine <mmartine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 19:57:01 by mmartine          #+#    #+#             */
-/*   Updated: 2021/10/20 20:01:12 by mmartine         ###   ########.fr       */
+/*   Updated: 2023/04/04 16:23:52 by mmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	{
 		current = ft_lstlast(*lst);
 		current->next = new;
+		new -> next = NULL;
 	}
 	else
 		*lst = new;
