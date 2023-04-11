@@ -6,7 +6,7 @@
 /*   By: mmartine <mmartine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 21:00:29 by mmartine          #+#    #+#             */
-/*   Updated: 2023/04/04 18:09:46 by mmartine         ###   ########.fr       */
+/*   Updated: 2023/04/11 18:18:43 by mmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	reverse(t_list **stack)
 	newlast = *stack;
 	while (newlast -> next -> next)
 		newlast = newlast -> next;
-	newhead = ft_lstlast(stack);
+	newhead = ft_lstlast(*stack);
 	newhead -> next = *stack;
 	*stack = newhead;
 	newlast -> next = NULL;
