@@ -6,7 +6,7 @@
 /*   By: mmartine <mmartine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 17:12:52 by mmartine          #+#    #+#             */
-/*   Updated: 2023/04/11 18:19:14 by mmartine         ###   ########.fr       */
+/*   Updated: 2023/04/12 19:18:11 by mmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,15 @@ int	validnum(char *str)
 			|| (str[i] > 47 && str[i] < 58))
 			i++;
 		else
+		{
+			printf("el caracter: %i, en la posicion %i, no es válido\n", str[i], i);
 			return (0);
+		}
 	}
+	printf("numvalido\n");
 	return (1);
 }
 
-	//num puede que no sea necesario
 int	fillstack(char **arg, int len, t_list **stack_a)
 {
 	int		i;
@@ -40,18 +43,20 @@ int	fillstack(char **arg, int len, t_list **stack_a)
 	i = 0;
 	while (++i < len)
 	{
-		matrix = ft_split(arg[j], ' ');
+		printf("spliteando con i = %i y len = %i\n", i, len);
+		matrix = ft_split(arg[i], ' ');
 		while (matrix[j])
 		{
 			if (!validnum(matrix[j]))
 				return (0);
-			//num va dentro de las listas
+			printf("num valido\n");
 			num = ft_atoi(matrix[j]);
-			//aqui se añade el numero a lo que te cuento
+			printf("postatoi\n");
+			if (!add_num_to_stack(stack_a, num))
+				return (0);
 			j++;
 		}
 		free(matrix);
-		i++;
 	}
 	return (1);
 }
@@ -64,8 +69,14 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		return (0);
 	stack_a = malloc(sizeof(void *));
+	stack_b = malloc(sizeof(void *));
 	if (!fillstack(argv, argc, stack_a))
+	{
+		wipe_stacks(stack_a, stack_b);
 		return (0);
-		//error a revisar
+	}
+	printstack(stack_a);
+	wipe_stacks(stack_a, stack_b);
+	//error a revisar
 	return (0);
 }
