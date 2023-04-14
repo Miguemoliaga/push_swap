@@ -6,31 +6,11 @@
 /*   By: mmartine <mmartine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 17:12:52 by mmartine          #+#    #+#             */
-/*   Updated: 2023/04/12 19:18:11 by mmartine         ###   ########.fr       */
+/*   Updated: 2023/04/14 17:35:49 by mmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	validnum(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		if ((i == 0 && (str[i] == 43 || str[i] == 45))
-			|| (str[i] > 47 && str[i] < 58))
-			i++;
-		else
-		{
-			printf("el caracter: %i, en la posicion %i, no es válido\n", str[i], i);
-			return (0);
-		}
-	}
-	printf("numvalido\n");
-	return (1);
-}
 
 int	fillstack(char **arg, int len, t_list **stack_a)
 {
@@ -43,19 +23,17 @@ int	fillstack(char **arg, int len, t_list **stack_a)
 	i = 0;
 	while (++i < len)
 	{
-		printf("spliteando con i = %i y len = %i\n", i, len);
 		matrix = ft_split(arg[i], ' ');
 		while (matrix[j])
 		{
-			if (!validnum(matrix[j]))
+			if (!validnum(matrix[j]) || !max_min_int(matrix[j]))
 				return (0);
-			printf("num valido\n");
 			num = ft_atoi(matrix[j]);
-			printf("postatoi\n");
 			if (!add_num_to_stack(stack_a, num))
 				return (0);
 			j++;
 		}
+		j = 0;
 		free(matrix);
 	}
 	return (1);
