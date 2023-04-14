@@ -6,7 +6,7 @@
 /*   By: mmartine <mmartine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 17:12:52 by mmartine          #+#    #+#             */
-/*   Updated: 2023/04/14 17:35:49 by mmartine         ###   ########.fr       */
+/*   Updated: 2023/04/14 18:26:06 by mmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	fillstack(char **arg, int len, t_list **stack_a)
 {
 	int		i;
 	int		j;
-	int		num;
 	char	**matrix;
 
 	j = 0;
@@ -28,8 +27,7 @@ int	fillstack(char **arg, int len, t_list **stack_a)
 		{
 			if (!validnum(matrix[j]) || !max_min_int(matrix[j]))
 				return (0);
-			num = ft_atoi(matrix[j]);
-			if (!add_num_to_stack(stack_a, num))
+			if (!add_num_to_stack(stack_a, ft_atoi(matrix[j])))
 				return (0);
 			j++;
 		}
