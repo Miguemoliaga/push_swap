@@ -6,7 +6,7 @@
 /*   By: mmartine <mmartine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 17:14:50 by mmartine          #+#    #+#             */
-/*   Updated: 2023/04/14 17:34:06 by mmartine         ###   ########.fr       */
+/*   Updated: 2023/04/25 17:12:58 by mmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,15 @@ int		add_num_to_stack(t_list **stack, int num);
 void	printstack(t_list **stack);
 int		validnum(char *str);
 int		max_min_int(char *str);
+void	swap_a(t_list **stack);
+void	swap_b(t_list **stack);
+void	swap_ab(t_list **stacka, t_list **stackb);
+void	reverse_a(t_list **stack_a);
+void	reverse_b(t_list **stack_b);
+void	reverse_ab(t_list **stack_a, t_list **stack_b);
+void	rot_a(t_list **stack_a);
+void	rot_b(t_list **stack_b);
+void	rot_ab(t_list **stack_a, t_list **stack_b);
+void	three_sort(t_list **stack_a);
 
 #endif
