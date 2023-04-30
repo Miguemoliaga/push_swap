@@ -6,7 +6,7 @@
 /*   By: mmartine <mmartine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 16:03:47 by mmartine          #+#    #+#             */
-/*   Updated: 2023/04/14 18:22:40 by mmartine         ###   ########.fr       */
+/*   Updated: 2023/04/30 18:50:03 by mmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,14 @@ int	add_num_to_stack(t_list **stack, int num)
 	current = *stack;
 	if (current)
 	{
-		while (current->next)
+		while (current -> next)
 		{
 			if (*(int *)(current -> content) == num)
 				return (0);
 			current = current->next;
 		}
+		if (*(int *)(current -> content) == num)
+			return (0);
 		current -> next = add;
 	}
 	else
@@ -65,10 +67,7 @@ int	max_min_int(char *str)
 		resul = (resul * 10 + (str[i] - '0'));
 		if ((resul > 2147483647 && mult == 1)
 			|| (resul > 2147483648 && mult == -1))
-		{
-			printf("maxint or minint\n");
 			return (0);
-		}
 		i++;
 	}
 	return (1);
@@ -89,6 +88,20 @@ int	validnum(char *str)
 			i++;
 		else
 			return (0);
+	}
+	return (1);
+}
+
+int	is_sort(t_list **stack)
+{
+	t_list	*curr;
+
+	curr = *stack;
+	while (curr -> next)
+	{
+		if (*(int *)curr->content > *(int *)curr->next->content)
+			return (0);
+		curr = curr -> next;
 	}
 	return (1);
 }

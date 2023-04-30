@@ -6,7 +6,7 @@
 /*   By: mmartine <mmartine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 17:14:50 by mmartine          #+#    #+#             */
-/*   Updated: 2023/04/25 17:12:58 by mmartine         ###   ########.fr       */
+/*   Updated: 2023/04/28 14:49:27 by mmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,7 @@ void	rot_a(t_list **stack_a);
 void	rot_b(t_list **stack_b);
 void	rot_ab(t_list **stack_a, t_list **stack_b);
 void	three_sort(t_list **stack_a);
+int		is_sort(t_list **stack);
+t_list	**stack_simplyfier(t_list **stack);
 
 #endif
