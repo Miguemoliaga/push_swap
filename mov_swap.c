@@ -6,7 +6,7 @@
 /*   By: mmartine <mmartine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 18:22:41 by mmartine          #+#    #+#             */
-/*   Updated: 2023/04/03 19:22:37 by mmartine         ###   ########.fr       */
+/*   Updated: 2023/05/05 17:05:50 by mmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	swap(t_list **stack)
 	aux2 = *stack;
 	aux2 -> next = aux1 -> next;
 	aux1 -> next = aux2;
+	*stack = aux1;
 }
 
 void	swap_a(t_list **stack)

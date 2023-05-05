@@ -6,7 +6,7 @@
 /*   By: mmartine <mmartine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 17:12:52 by mmartine          #+#    #+#             */
-/*   Updated: 2023/04/30 18:48:48 by mmartine         ###   ########.fr       */
+/*   Updated: 2023/05/05 18:11:05 by mmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,12 @@ int	main(int argc, char **argv)
 		write(1, "Error\n", 6);
 		return (2);
 	}
-	//stack_a = stack_simplyfier(stack_a);
-	/*if (ft_lstsize(*stack_a) == 3)
-		three_sort(*stack_a);
+	stack_a = stack_simplyfier(stack_a);
+	if (ft_lstsize(*stack_a) == 3)
+		three_sort(stack_a);
 	else if (ft_lstsize(*stack_a) <= 5)
 		five_four_sort(stack_a, stack_b);
-	else
+	/*else
 		we_sort(stack_a, stack_b);*/
 	printstack(stack_a);
 	wipe_stacks(stack_a, stack_b);
