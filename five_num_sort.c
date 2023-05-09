@@ -6,7 +6,7 @@
 /*   By: mmartine <mmartine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 17:16:33 by mmartine          #+#    #+#             */
-/*   Updated: 2023/05/05 18:31:10 by mmartine         ###   ########.fr       */
+/*   Updated: 2023/05/09 16:39:08 by mmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	search_high_num(t_list	**stack, int n)
 
 	pos = 0;
 	curr = *stack;
-	while (n != *(int *)curr->content)
+	while (*(int *)curr->content != n)
 	{
 		pos++;
 		curr = curr -> next;
@@ -35,11 +35,16 @@ void	five_four_sort(t_list **stack_a, t_list **stack_b)
 	times = ft_lstsize(*stack_a) - 3;
 	while (times-- > 0)
 	{
-		printf("veces: %i\n", times);
-		rolls = search_high_num(stack_a, ft_lstsize(*stack_a));
-		printf("hola hola\n");
-		while (rolls-- > 0)
-			rot_a(stack_a);
+		rolls = search_high_num(stack_a, ft_lstsize(*stack_a) - 1);
+		if (rolls > ft_lstsize(*stack_a) / 2)
+		{
+			rolls = ft_lstsize(*stack_a) - rolls;
+			while (rolls-- > 0)
+				reverse_a(stack_a);
+		}
+		else
+			while (rolls-- > 0)
+				rot_a(stack_a);
 		push_b(stack_a, stack_b);
 	}
 	three_sort(stack_a);
