@@ -6,7 +6,7 @@
 /*   By: mmartine <mmartine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 17:12:52 by mmartine          #+#    #+#             */
-/*   Updated: 2023/05/05 18:11:05 by mmartine         ###   ########.fr       */
+/*   Updated: 2023/05/14 18:45:24 by mmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int	fillstack(char **arg, int len, t_list **stack_a)
 		j = 0;
 		free(matrix);
 	}
+	if (ft_lstsize(*stack_a) <= 2)
+		return (0);
 	if (is_sort(stack_a))
 		return (0);
 	return (1);
@@ -59,8 +61,8 @@ int	main(int argc, char **argv)
 		three_sort(stack_a);
 	else if (ft_lstsize(*stack_a) <= 5)
 		five_four_sort(stack_a, stack_b);
-	/*else
-		we_sort(stack_a, stack_b);*/
+	else if (ft_lstsize(*stack_a) > 5)
+		sort_algorithm(stack_a, stack_b, ft_lstsize(*stack_a), (ft_lstsize(*stack_a) / 13) + 22);
 	printstack(stack_a);
 	wipe_stacks(stack_a, stack_b);
 	//error a revisar
