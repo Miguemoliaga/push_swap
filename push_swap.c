@@ -6,7 +6,7 @@
 /*   By: mmartine <mmartine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 17:12:52 by mmartine          #+#    #+#             */
-/*   Updated: 2023/05/14 18:45:24 by mmartine         ###   ########.fr       */
+/*   Updated: 2023/05/16 18:09:02 by mmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,10 @@ int	main(int argc, char **argv)
 	else if (ft_lstsize(*stack_a) <= 5)
 		five_four_sort(stack_a, stack_b);
 	else if (ft_lstsize(*stack_a) > 5)
-		sort_algorithm(stack_a, stack_b, ft_lstsize(*stack_a), (ft_lstsize(*stack_a) / 13) + 22);
+		sort_algorithm(stack_a, stack_b, ft_lstsize(*stack_a),
+			(ft_lstsize(*stack_a) / 13) + 22);
 	printstack(stack_a);
+	printstack(stack_b);
 	wipe_stacks(stack_a, stack_b);
-	//error a revisar
 	return (0);
 }

@@ -12,6 +12,21 @@
 
 #include "push_swap.h"
 
+int	search_num(t_list	**stack, int n)
+{
+	int		pos;
+	t_list	*curr;
+
+	pos = 0;
+	curr = *stack;
+	while (*(int *)curr->content != n)
+	{
+		pos++;
+		curr = curr -> next;
+	}	
+	return (pos++);
+}
+
 void	add_simple(t_list **stack, int num)
 {
 	t_list	*current;

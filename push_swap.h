@@ -6,7 +6,7 @@
 /*   By: mmartine <mmartine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 17:14:50 by mmartine          #+#    #+#             */
-/*   Updated: 2023/05/14 18:45:56 by mmartine         ###   ########.fr       */
+/*   Updated: 2023/05/16 17:25:49 by mmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,6 @@ void	push_a(t_list **stack_a, t_list **stack_b);
 void	push_b(t_list **stack_a, t_list **stack_b);
 void	sort_algorithm(t_list **stack_a, t_list **stack_b,
 			int stacksize, int chunksize);
+int		search_num(t_list **stack, int n);
 
 #endif

@@ -6,36 +6,90 @@
 /*   By: mmartine <mmartine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 16:40:40 by mmartine          #+#    #+#             */
-/*   Updated: 2023/05/14 19:32:13 by mmartine         ###   ########.fr       */
+/*   Updated: 2023/05/16 18:07:54 by mmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	search_num(t_list	**stack, int n)
+int	fromtop(t_list **stack_a, t_list **stack_b, int num, int pos)
 {
-	int		pos;
-	t_list	*curr;
+	int	sp;
 
-	pos = 0;
-	curr = *stack;
-	while (*(int *)curr->content != n)
+	sp = 0;
+	while (pos-- > 0)
 	{
-		pos++;
-		curr = curr -> next;
-	}	
-	return (pos++);
+		if (*(int *)(*stack_b)->content == num - 1)
+		{
+			sp = 1;
+			push_a(stack_a, stack_b);
+		}
+		if (ft_lstsize(*stack_b) > 1)
+			rot_b(stack_b);
+	}
+	push_a(stack_a, stack_b);
+	return (sp);
+}
+
+int	frombot(t_list **stack_a, t_list **stack_b, int num, int pos)
+{
+	int	sp;
+
+	sp = 0;
+	while (pos-- > 0)
+	{
+		if (*(int *)(*stack_b)->content == num - 1)
+		{
+			sp = 1;
+			push_a(stack_a, stack_b);
+		}
+		if (ft_lstsize(*stack_b) > 1)
+			reverse_b(stack_b);
+	}
+	push_a(stack_a, stack_b);
+	return (sp);
+}
+
+void	step_two(t_list **stack_a, t_list **stack_b, int max)
+{
+	int		it;
+	int		pos;
+
+	it = 1;
+	while (it <= max)
+	{
+		pos = search_num(stack_b, max - it);
+		if (pos > ft_lstsize(*stack_b) / 2)
+		{
+			if (frombot(stack_a, stack_b, max - it, ft_lstsize(*stack_b) - pos))
+			{
+				swap_a(stack_a);
+				it++;
+			}
+		}
+		else
+		{
+			if (fromtop(stack_a, stack_b, max - it, pos))
+			{
+				swap_a(stack_a);
+				it++;
+			}
+		}
+		it++;
+	}
 }
 
 void	step_one(t_list **stack_a, t_list **stack_b, int chunksize, int max)
 {
 	t_list	*curr;
 	int		it;
+	int		topnum;
 
 	it = 0;
 	curr = *stack_a;
 	while (it < max)
 	{
+		topnum = chunksize * ((it / max) + 1);
 		if (*(int *)curr->content < chunksize)
 		{
 			push_b(stack_a, stack_b);
@@ -43,19 +97,13 @@ void	step_one(t_list **stack_a, t_list **stack_b, int chunksize, int max)
 		}
 		else
 			rot_a(stack_a);
-
 	}
 }
 
 void	sort_algorithm(t_list **stack_a, t_list **stack_b,
 		int stacksize, int chunksize)
 {
-	int	moves;
-	int	num;
-
-	num = 0;
-	moves = 0;
 	step_one(stack_a, stack_b, chunksize, stacksize);
-
+	step_two(stack_a, stack_b, stacksize);
 	return ;
 }
