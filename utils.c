@@ -6,7 +6,7 @@
 /*   By: mmartine <mmartine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 16:03:47 by mmartine          #+#    #+#             */
-/*   Updated: 2023/05/14 16:25:51 by mmartine         ###   ########.fr       */
+/*   Updated: 2023/05/16 19:14:55 by mmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	add_num_to_stack(t_list **stack, int num)
 	t_list	*add;
 	int		*bnum;
 
-	bnum = calloc(1, sizeof(int));
+	bnum = ft_calloc(1, sizeof(int));
 	*bnum = num;
 	add = ft_lstnew(bnum);
 	current = *stack;
