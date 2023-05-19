@@ -6,7 +6,7 @@
 /*   By: mmartine <mmartine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 17:12:52 by mmartine          #+#    #+#             */
-/*   Updated: 2023/05/16 19:25:03 by mmartine         ###   ########.fr       */
+/*   Updated: 2023/05/19 15:43:56 by mmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	fillstack(char **arg, int len, t_list **stack_a)
 			j++;
 		}
 		j = 0;
-		free(matrix);
+		freematrix(matrix);
 	}
 	if (ft_lstsize(*stack_a) <= 2)
 		return (0);
@@ -58,7 +58,7 @@ int	fillstack(char **arg, int len, t_list **stack_a)
 
 void	show_leaks(void)
 {
-	system("leaks a.out");
+	system("leaks push_swap");
 }
 
 int	main(int argc, char **argv)
@@ -66,7 +66,6 @@ int	main(int argc, char **argv)
 	t_list	**stack_a;
 	t_list	**stack_b;
 
-	atexit(show_leaks);
 	if (argc == 1)
 		return (0);
 	stack_a = ft_calloc(1, sizeof(void *));
@@ -85,10 +84,11 @@ int	main(int argc, char **argv)
 	else if (ft_lstsize(*stack_a) > 5)
 		sort_algorithm(stack_a, stack_b, ft_lstsize(*stack_a),
 			(ft_lstsize(*stack_a) / 13) + 22);
-	/*
-	printstack(stack_a);
-	printstack(stack_b);
-	*/
+	
+	//printstack(stack_a);
+	//printstack(stack_b);
+	
 	wipe_stacks(stack_a, stack_b);
+	atexit(show_leaks);
 	return (0);
 }

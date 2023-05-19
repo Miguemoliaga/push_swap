@@ -6,7 +6,7 @@
 /*   By: mmartine <mmartine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 19:57:07 by mmartine          #+#    #+#             */
-/*   Updated: 2021/10/20 20:01:12 by mmartine         ###   ########.fr       */
+/*   Updated: 2023/05/19 15:36:52 by mmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 			current = aux;
 		}
 		*lst = NULL;
+		free(*lst);
 	}
 }
