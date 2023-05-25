@@ -6,7 +6,7 @@
 /*   By: mmartine <mmartine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 16:40:40 by mmartine          #+#    #+#             */
-/*   Updated: 2023/05/16 18:07:54 by mmartine         ###   ########.fr       */
+/*   Updated: 2023/05/25 13:56:30 by mmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ void	step_two(t_list **stack_a, t_list **stack_b, int max)
 				swap_a(stack_a);
 				it++;
 			}
+			printstack(stack_a);
+			printstack(stack_b);
 		}
 		it++;
 	}
@@ -97,6 +99,8 @@ void	step_one(t_list **stack_a, t_list **stack_b, int chunksize, int max)
 		}
 		else
 			rot_a(stack_a);
+		printstack(stack_a);
+		printstack(stack_b);
 	}
 }
 
