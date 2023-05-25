@@ -6,7 +6,7 @@
 /*   By: mmartine <mmartine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 16:40:40 by mmartine          #+#    #+#             */
-/*   Updated: 2023/05/25 13:56:30 by mmartine         ###   ########.fr       */
+/*   Updated: 2023/05/25 18:00:25 by mmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	fromtop(t_list **stack_a, t_list **stack_b, int num, int pos)
 			sp = 1;
 			push_a(stack_a, stack_b);
 		}
-		if (ft_lstsize(*stack_b) > 1)
+		else if (ft_lstsize(*stack_b) > 1)
 			rot_b(stack_b);
 	}
 	push_a(stack_a, stack_b);
@@ -56,7 +56,7 @@ void	step_two(t_list **stack_a, t_list **stack_b, int max)
 	int		pos;
 
 	it = 1;
-	while (it <= max)
+	while (it < max)
 	{
 		pos = search_num(stack_b, max - it);
 		if (pos > ft_lstsize(*stack_b) / 2)
@@ -74,8 +74,6 @@ void	step_two(t_list **stack_a, t_list **stack_b, int max)
 				swap_a(stack_a);
 				it++;
 			}
-			printstack(stack_a);
-			printstack(stack_b);
 		}
 		it++;
 	}
@@ -88,19 +86,19 @@ void	step_one(t_list **stack_a, t_list **stack_b, int chunksize, int max)
 	int		topnum;
 
 	it = 0;
-	curr = *stack_a;
+	topnum = chunksize;
 	while (it < max)
 	{
-		topnum = chunksize * ((it / max) + 1);
-		if (*(int *)curr->content < chunksize)
+		curr = *stack_a;
+		if (*(int *)curr->content <= topnum)
 		{
 			push_b(stack_a, stack_b);
 			it++;
 		}
 		else
 			rot_a(stack_a);
-		printstack(stack_a);
-		printstack(stack_b);
+		if (it >= topnum)
+			topnum += chunksize;
 	}
 }
 

@@ -23,6 +23,8 @@ INCLUDE	= -L${LIBFT} -lft
 
 OBJS	= ${SRCS:.c=.o}
 
+SIZE 	?= 100
+
 RM		= rm -rf
 
 OS		:= $(shell uname -s)
@@ -47,6 +49,9 @@ clean:
 
 fclean:		clean
 		@${RM} ${NAME}
+
+check: $(NAME)
+	@./$(NAME) `python3 -c 'import random; print(" ".join(map(str, random.sample(range(1, 100001), $(SIZE)))))'`
 
 bonus: all
 

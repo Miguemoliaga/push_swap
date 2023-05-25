@@ -6,7 +6,7 @@
 /*   By: mmartine <mmartine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 14:45:10 by mmartine          #+#    #+#             */
-/*   Updated: 2023/05/19 15:53:02 by mmartine         ###   ########.fr       */
+/*   Updated: 2023/05/25 16:07:31 by mmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	search_num(t_list	**stack, int n)
 
 	pos = 0;
 	curr = *stack;
-	while (*(int *)curr->content != n)
+	while (curr && *(int *)curr->content != n)
 	{
 		pos++;
 		curr = curr -> next;
