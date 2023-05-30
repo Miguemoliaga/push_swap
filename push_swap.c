@@ -6,7 +6,7 @@
 /*   By: mmartine <mmartine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 17:12:52 by mmartine          #+#    #+#             */
-/*   Updated: 2023/05/30 20:44:56 by mmartine         ###   ########.fr       */
+/*   Updated: 2023/05/30 21:07:03 by mmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	stackselector(t_list **stack_a)
 	if (ft_lstsize(*stack_a) > 200)
 		return (50);
 	else
-		return (22);
+		return ((ft_lstsize(*stack_a) / 25) + 22);
 }
 
 int	freematrix(char **matrix)
