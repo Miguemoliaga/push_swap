@@ -6,11 +6,19 @@
 /*   By: mmartine <mmartine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 17:12:52 by mmartine          #+#    #+#             */
-/*   Updated: 2023/05/25 16:32:22 by mmartine         ###   ########.fr       */
+/*   Updated: 2023/05/30 20:44:56 by mmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	stackselector(t_list **stack_a)
+{
+	if (ft_lstsize(*stack_a) > 200)
+		return (50);
+	else
+		return (22);
+}
 
 int	freematrix(char **matrix)
 {
@@ -79,9 +87,9 @@ int	main(int argc, char **argv)
 		five_four_sort(stack_a, stack_b);
 	else if (ft_lstsize(*stack_a) > 5)
 		sort_algorithm(stack_a, stack_b, ft_lstsize(*stack_a),
-			(ft_lstsize(*stack_a) / 13) + 22);
-	/*printstack(stack_a);
-	printstack(stack_b);*/
+			stackselector(stack_a));
+	if (ft_lstsize(*stack_b) == 1)
+		push_a(stack_a, stack_b);
 	wipe_stacks(stack_a, stack_b);
 	//atexit(show_leaks);
 	return (0);

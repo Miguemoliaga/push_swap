@@ -5,7 +5,7 @@ CC		= gcc
 CFLAGS	= -Wall -Werror -Wextra
 
 SRCS	=	push_swap.c \
-			five_num_sort.c \
+ 			five_num_sort.c \
 			mov_push.c \
 			mov_rev.c \
 			mov_rot.c \
