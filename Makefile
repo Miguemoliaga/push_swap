@@ -45,7 +45,7 @@ $(NAME): ${OBJS}
 
 clean:
 		@${RM} ${OBJS} *.dSYM
-		(cd libft; make clean)
+		(cd libft; make fclean)
 
 fclean:		clean
 		@${RM} ${NAME}
