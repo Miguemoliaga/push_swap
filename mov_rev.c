@@ -6,7 +6,7 @@
 /*   By: mmartine <mmartine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 21:00:29 by mmartine          #+#    #+#             */
-/*   Updated: 2023/04/25 17:11:50 by mmartine         ###   ########.fr       */
+/*   Updated: 2023/06/20 19:36:51 by mmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	reverse(t_list **stack)
 	t_list	*newhead;
 	t_list	*newlast;
 
+	if (ft_lstsize(*stack) < 2)
+		return ;
 	newlast = *stack;
 	while (newlast -> next -> next)
 		newlast = newlast -> next;

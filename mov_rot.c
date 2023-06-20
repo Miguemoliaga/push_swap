@@ -6,7 +6,7 @@
 /*   By: mmartine <mmartine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 20:14:24 by mmartine          #+#    #+#             */
-/*   Updated: 2023/04/04 16:27:26 by mmartine         ###   ########.fr       */
+/*   Updated: 2023/06/20 19:35:57 by mmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	rotate(t_list **stack)
 	t_list	*last;
 	t_list	*newfirst;
 
+	if (ft_lstsize(*stack) < 2)
+		return ;
 	last = *stack;
 	newfirst = last -> next;
 	ft_lstadd_back(stack, last);

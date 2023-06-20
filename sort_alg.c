@@ -6,7 +6,7 @@
 /*   By: mmartine <mmartine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 16:40:40 by mmartine          #+#    #+#             */
-/*   Updated: 2023/05/30 20:21:59 by mmartine         ###   ########.fr       */
+/*   Updated: 2023/06/20 19:37:24 by mmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,8 @@ void	step_one(t_list **stack_a, t_list **stack_b, int chunksize, int max)
 		if (*(int *)curr->content <= topnum)
 		{
 			push_b(stack_a, stack_b);
+			if (*(int *)(*stack_b)->content >= (topnum - chunksize / 2))
+				rot_b(stack_b);
 			it++;
 		}
 		else

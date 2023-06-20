@@ -6,7 +6,7 @@
 /*   By: mmartine <mmartine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 16:03:47 by mmartine          #+#    #+#             */
-/*   Updated: 2023/05/30 20:27:51 by mmartine         ###   ########.fr       */
+/*   Updated: 2023/06/20 20:11:40 by mmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,23 +104,4 @@ int	is_sort(t_list **stack)
 		curr = curr -> next;
 	}
 	return (1);
-}
-
-//quitar de aqui al final y del .h
-void	printstack(t_list **stack)
-{
-	t_list	*current;
-
-	current = *stack;
-	if (current)
-	{
-		while (current -> next)
-		{
-			printf("%i ", *(int *)current -> content);
-			current = current -> next;
-		}
-		printf("%i\n", *(int *)current -> content);
-	}
-	else
-		printf("stack vacio");
 }

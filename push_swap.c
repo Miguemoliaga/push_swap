@@ -6,7 +6,7 @@
 /*   By: mmartine <mmartine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 17:12:52 by mmartine          #+#    #+#             */
-/*   Updated: 2023/05/30 21:07:03 by mmartine         ###   ########.fr       */
+/*   Updated: 2023/06/20 19:37:17 by mmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,5 @@ int	main(int argc, char **argv)
 	if (ft_lstsize(*stack_b) == 1)
 		push_a(stack_a, stack_b);
 	wipe_stacks(stack_a, stack_b);
-	//atexit(show_leaks);
 	return (0);
 }
