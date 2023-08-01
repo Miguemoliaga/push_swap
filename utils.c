@@ -6,7 +6,7 @@
 /*   By: mmartine <mmartine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 16:03:47 by mmartine          #+#    #+#             */
-/*   Updated: 2023/06/20 20:11:40 by mmartine         ###   ########.fr       */
+/*   Updated: 2023/08/01 19:25:52 by mmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ int	add_num_to_stack(t_list **stack, int num)
 				return (0);
 			current = current->next;
 		}
+		current -> next = add;
 		if (*(int *)(current -> content) == num)
 			return (0);
-		current -> next = add;
 	}
 	else
 		*stack = add;

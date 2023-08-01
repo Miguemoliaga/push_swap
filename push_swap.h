@@ -6,7 +6,7 @@
 /*   By: mmartine <mmartine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 17:14:50 by mmartine          #+#    #+#             */
-/*   Updated: 2023/05/30 16:31:52 by mmartine         ###   ########.fr       */
+/*   Updated: 2023/08/01 19:48:54 by mmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,6 @@ void	sort_algorithm(t_list **stack_a, t_list **stack_b,
 			int stacksize, int chunksize);
 int		search_num(t_list **stack, int n);
 void	step_one(t_list **stack_a, t_list **stack_b, int chunksize, int max);
+void	show_leaks(void);
 
 #endif

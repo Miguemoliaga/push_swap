@@ -6,13 +6,13 @@
 /*   By: mmartine <mmartine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 17:12:52 by mmartine          #+#    #+#             */
-/*   Updated: 2023/06/20 19:37:17 by mmartine         ###   ########.fr       */
+/*   Updated: 2023/08/01 19:51:01 by mmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	stackselector(t_list **stack_a)
+int	cs(t_list **stack_a)
 {
 	if (ft_lstsize(*stack_a) > 200)
 		return (50);
@@ -28,7 +28,7 @@ int	freematrix(char **matrix)
 	while (matrix[i])
 		free(matrix[i++]);
 	free(matrix);
-	return (0);
+	return (2);
 }
 
 int	fillstack(char **arg, int len, t_list **stack_a)
@@ -53,41 +53,47 @@ int	fillstack(char **arg, int len, t_list **stack_a)
 		j = 0;
 		freematrix(matrix);
 	}
-	if (ft_lstsize(*stack_a) <= 2)
-		return (0);
 	if (is_sort(stack_a))
-		return (0);
-	return (1);
+		return (1);
+	return (0);
 }
 
-void	show_leaks(void)
+void	selecfunct(t_list **stack_a, t_list **stack_b)
 {
-	system("leaks push_swap");
+	if (ft_lstsize(*stack_a) == 2)
+	{
+		if (*(int *)(*stack_a)->content > *(int *)(*stack_a)->next->content)
+			swap_a(stack_a);
+	}
+	else if (ft_lstsize(*stack_a) == 3)
+		three_sort(stack_a);
+	else if (ft_lstsize(*stack_a) <= 5)
+		five_four_sort(stack_a, stack_b);
+	else if (ft_lstsize(*stack_a) > 5)
+		sort_algorithm(stack_a, stack_b, ft_lstsize(*stack_a), cs(stack_a));
 }
 
 int	main(int argc, char **argv)
 {
 	t_list	**stack_a;
 	t_list	**stack_b;
+	int		ex;
 
+	/* atexit(show_leaks); */
 	if (argc == 1)
 		return (0);
 	stack_a = ft_calloc(1, sizeof(void *));
 	stack_b = ft_calloc(1, sizeof(void *));
-	if (!fillstack(argv, argc, stack_a))
+	ex = fillstack(argv, argc, stack_a);
+	if (ex)
 	{
 		wipe_stacks(stack_a, stack_b);
-		write(2, "Error\n", 6);
+		if (ex == 2)
+			write(2, "Error\n", 6);
 		return (2);
 	}
 	stack_a = stack_simplyfier(stack_a);
-	if (ft_lstsize(*stack_a) == 3)
-		three_sort(stack_a);
-	else if (ft_lstsize(*stack_a) <= 5)
-		five_four_sort(stack_a, stack_b);
-	else if (ft_lstsize(*stack_a) > 5)
-		sort_algorithm(stack_a, stack_b, ft_lstsize(*stack_a),
-			stackselector(stack_a));
+	selecfunct(stack_a, stack_b);
 	if (ft_lstsize(*stack_b) == 1)
 		push_a(stack_a, stack_b);
 	wipe_stacks(stack_a, stack_b);

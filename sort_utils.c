@@ -6,7 +6,7 @@
 /*   By: mmartine <mmartine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 14:45:10 by mmartine          #+#    #+#             */
-/*   Updated: 2023/05/25 16:07:31 by mmartine         ###   ########.fr       */
+/*   Updated: 2023/08/01 19:35:55 by mmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,9 @@ t_list	**stack_simplyfier(t_list **stack)
 	ft_lstclear(stack, free);
 	free(stack);
 	return (simple);
+}
+
+void	show_leaks(void)
+{
+	system("leaks -q push_swap");
 }
