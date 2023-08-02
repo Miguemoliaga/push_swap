@@ -6,7 +6,7 @@
 /*   By: mmartine <mmartine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 17:12:52 by mmartine          #+#    #+#             */
-/*   Updated: 2023/08/01 19:51:01 by mmartine         ###   ########.fr       */
+/*   Updated: 2023/08/02 16:31:26 by mmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ int	main(int argc, char **argv)
 	t_list	**stack_b;
 	int		ex;
 
-	/* atexit(show_leaks); */
 	if (argc == 1)
 		return (0);
 	stack_a = ft_calloc(1, sizeof(void *));
