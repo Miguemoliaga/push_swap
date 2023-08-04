@@ -6,19 +6,11 @@
 /*   By: mmartine <mmartine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 17:12:52 by mmartine          #+#    #+#             */
-/*   Updated: 2023/08/02 16:31:26 by mmartine         ###   ########.fr       */
+/*   Updated: 2023/08/04 17:52:30 by mmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	cs(t_list **stack_a)
-{
-	if (ft_lstsize(*stack_a) > 200)
-		return (50);
-	else
-		return ((ft_lstsize(*stack_a) / 25) + 22);
-}
 
 int	freematrix(char **matrix)
 {
@@ -70,9 +62,11 @@ void	selecfunct(t_list **stack_a, t_list **stack_b)
 	else if (ft_lstsize(*stack_a) <= 5)
 		five_four_sort(stack_a, stack_b);
 	else if (ft_lstsize(*stack_a) > 5)
-		sort_algorithm(stack_a, stack_b, ft_lstsize(*stack_a), cs(stack_a));
+		sort_algorithm(stack_a, stack_b, ft_lstsize(*stack_a),
+			(ft_lstsize(*stack_a) / 17) + 22);
 }
 
+	//atexit(show_leaks);
 int	main(int argc, char **argv)
 {
 	t_list	**stack_a;
