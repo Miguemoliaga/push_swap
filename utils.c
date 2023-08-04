@@ -6,7 +6,7 @@
 /*   By: mmartine <mmartine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 16:03:47 by mmartine          #+#    #+#             */
-/*   Updated: 2023/08/01 19:25:52 by mmartine         ###   ########.fr       */
+/*   Updated: 2023/08/04 22:10:41 by mmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,27 +23,28 @@ void	wipe_stacks(t_list **stack_a, t_list **stack_b)
 int	add_num_to_stack(t_list **stack, int num)
 {
 	t_list	*current;
-	t_list	*add;
 	int		*bnum;
 
 	bnum = ft_calloc(1, sizeof(int));
 	*bnum = num;
-	add = ft_lstnew(bnum);
 	current = *stack;
 	if (current)
 	{
 		while (current -> next)
 		{
 			if (*(int *)(current -> content) == num)
+			{
+				free(bnum);
 				return (0);
+			}
 			current = current->next;
 		}
-		current -> next = add;
+		current -> next = ft_lstnew(bnum);
 		if (*(int *)(current -> content) == num)
 			return (0);
 	}
 	else
-		*stack = add;
+		*stack = ft_lstnew(bnum);
 	return (1);
 }
 
@@ -97,7 +98,9 @@ int	is_sort(t_list **stack)
 	t_list	*curr;
 
 	curr = *stack;
-	while (curr -> next)
+	if (!curr)
+		return (1);
+	while (curr && curr -> next)
 	{
 		if (*(int *)curr->content > *(int *)curr->next->content)
 			return (0);

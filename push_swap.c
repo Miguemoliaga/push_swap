@@ -6,7 +6,7 @@
 /*   By: mmartine <mmartine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 17:12:52 by mmartine          #+#    #+#             */
-/*   Updated: 2023/08/04 17:52:30 by mmartine         ###   ########.fr       */
+/*   Updated: 2023/08/04 22:17:08 by mmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,10 @@ int	fillstack(char **arg, int len, t_list **stack_a)
 		j = 0;
 		freematrix(matrix);
 	}
-	if (is_sort(stack_a))
+	if (is_sort(stack_a) == 1)
 		return (1);
+	if (is_sort(stack_a) == 2)
+		return (2);
 	return (0);
 }
 
@@ -66,13 +68,13 @@ void	selecfunct(t_list **stack_a, t_list **stack_b)
 			(ft_lstsize(*stack_a) / 17) + 22);
 }
 
-	//atexit(show_leaks);
 int	main(int argc, char **argv)
 {
 	t_list	**stack_a;
 	t_list	**stack_b;
 	int		ex;
 
+	//atexit(show_leaks);
 	if (argc == 1)
 		return (0);
 	stack_a = ft_calloc(1, sizeof(void *));
